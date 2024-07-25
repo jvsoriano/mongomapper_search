@@ -151,7 +151,7 @@ module MongoMapper
           set_search_field key
         end
       end
-      save
+      save(validate: false)
       true
     end
     # end
