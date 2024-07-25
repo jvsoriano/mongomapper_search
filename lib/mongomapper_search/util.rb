@@ -32,7 +32,7 @@ module Util
     return [] if text.blank?
     text = text.to_s
       .mb_chars
-      .normalize(:kd)
+      # .normalize(:kd)
       .to_s
       .gsub(/[._:;'"`,?|+={}()!@#%^&*<>~\$\-\\\/\[\]]/, ' ') # strip punctuation
       .gsub(/[^[:alnum:]\s]/,'')   # strip accents
