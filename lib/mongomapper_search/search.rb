@@ -139,22 +139,22 @@ module MongoMapper
       
     end
     
-    module InstanceMethods #:nodoc:
-      # Indexes the document keywords
-      def index_keywords!
-        self.search_fields.each do |key, value|
-          if key.class == Hash
-            key.each do |sub_key, sub_value|
-              set_search_field key
-            end
-          else
+    # module InstanceMethods #:nodoc:
+    # Indexes the document keywords
+    def index_keywords!
+      self.search_fields.each do |key, value|
+        if key.class == Hash
+          key.each do |sub_key, sub_value|
             set_search_field key
           end
+        else
+          set_search_field key
         end
-        save
-        true
       end
+      save
+      true
     end
+    # end
     
     private
     def get_keywords(key)
